@@ -1,7 +1,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>crear Contacto</ion-title>
+    <ion-title>Crear Contacto</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,33 @@
   <ion-card *ngIf="activar">
       <button ion-button color="primary" block (click)="activar=false">Agregar</button>
 
+    </ion-card>
+    <ion-card *ngIf="!activar">
+    <ion-list>
+      
+      <ion-item>
+              <ion-label floating>Nombre</ion-label>
+              <ion-input type="text"  name=nombre [(ngModel)]="nom">
+              </ion-input>
+       </ion-item>
+      
+      <ion-item>
+              <ion-label floating>Numero telefonico</ion-label>
+              <ion-input type="number" name="num" [(ngModel)]="num">  
+              </ion-input>
+       </ion-item>
+    </ion-list>
+    <button ion-button color="primary" block (click)="createCode()">Crear Código QR</button>
+     </ion-card>
+     <ion-card *ngIf="createdCode">
+        <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+        <ion-card-content>
+          <p>Valor: {{ createdCode }}</p>
+        </ion-card-content>
+        <button ion-button color="primary" block (click)="activar=true && createdCode=false">crear otro</button>
+      </ion-card>
   
+
   <div padding>
     
       

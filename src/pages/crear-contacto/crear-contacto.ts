@@ -31,9 +31,12 @@ public viewCtrl: ViewController,private barcodeScanner: BarcodeScanner) {
     console.log('ionViewDidLoad CrearContactoPage');
   }
  
+  createCode() {
+    this.createdCode = this.nom+","+this.num;
+    this.activar=true;
+  }
  
-  //Escandeo de codigo qr y llama al metodo para crear el contacto con los daros leidos
-  
+  //Escandeo de codigo qr y llama al metodo para crear el contacto con los daros leidos  
   scanCode() {
     this.barcodeScanner.scan().then(barcodeData => {
       this.scannedCode = barcodeData.text;
