@@ -30,12 +30,8 @@ public viewCtrl: ViewController,private barcodeScanner: BarcodeScanner) {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CrearContactoPage');
   }
-  createCode() {
-    
-    this.createdCode = this.nom+","+this.num;
-    this.activar=true;
-  }
-
+ 
+ 
   //Escandeo de codigo qr y llama al metodo para crear el contacto con los daros leidos
   
   scanCode() {
@@ -55,7 +51,6 @@ public viewCtrl: ViewController,private barcodeScanner: BarcodeScanner) {
    * Funsion para agregar un nuevo contacto a la lista de contactos del telefono.
    */
   crearContacto(){
-    
     let contact: Contact = this.contacts.create();
     let avatar ="/assets/imgs/logo.png";
 
